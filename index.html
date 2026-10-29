@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<!--
+  ==================== 連結設定 ====================
+  要換連結時，只要改下面引號 " " 裡的網址，其他地方都不用動。
+  改完按 Commit changes，等 1–2 分鐘就會更新。
+  ==================================================
+-->
+<script>
+window.LINKS = {
+  stayLit:    "https://youtu.be/yFa48fvol10",                              // Stay Lit 的 LISTEN NOW
+  coldTape:   "https://open.spotify.com/album/4y7lbmkE8RVe2PzXycoKhe",     // Cold Tape 的 LISTEN NOW
+  instagram:  "https://www.instagram.com/richboi238",                      // Instagram
+  youtube:    "https://www.youtube.com/@richboi238",                       // YouTube 頻道
+  spotify:    "https://open.spotify.com/artist/1iO6XAWIpev0bKZnIcpG7L",    // Spotify 藝人頁
+  appleMusic: "https://music.apple.com/tw/artist/richboi/1543181386",      // Apple Music
+  email:      "richboi23888@gmail.com"                                     // 聯絡信箱
+};
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>RICHBOI</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="RICHBOI 周譽">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@125,500;125,600&family=IBM+Plex+Mono:wght@400&family=Noto+Sans+TC:wght@300;400&display=swap">
+<style>
+/* Layout: one continuous grey field — name + planet, two covers on one grid, contact; metallic blue only in the planet's ring. Single committed look; one wide grotesk for display words, nothing decorative. */
+:root{
+  --grey:#D6D8DC; --grey-2:#BFC3C9; --ink:#0B0C0F; --black:#0A0B0D; --steel:#9DBCD0; --steel-hi:#D7E6EF; --steel-lo:#7FA3BB; --dim:#8D939C;
+  --f-goth:"Archivo","Helvetica Neue",Arial,sans-serif;
+  --f-tc:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+body{margin:0}
+img{max-width:100%}
+body{background:var(--grey);color:var(--ink);font-family:var(--f-tc);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:2px solid currentColor;outline-offset:4px}
+.wrap{max-width:1000px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:grid;justify-items:center;text-align:center}
+.goth{font-family:var(--f-goth);font-weight:600;font-stretch:125%;font-variation-settings:'wdth' 125;text-transform:uppercase;letter-spacing:.04em;line-height:1}
+.sm{display:flex;gap:1.25rem;flex-wrap:wrap;justify-content:center;font-family:var(--f-mono);font-size:.74rem;letter-spacing:.12em;text-transform:uppercase}
+.sm a{opacity:.62;transition:opacity .2s}.sm a:hover{opacity:1}
+
+/* hero */
+.hero{position:relative;overflow:hidden;min-height:min(78svh,760px);display:grid;align-items:center;background:var(--grey)}
+.hero canvas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.hero .wrap{position:relative;width:100%;padding-block:5rem;gap:.9rem}
+.wordmark{display:inline-block;max-width:100%;margin:0;white-space:nowrap;font-size:clamp(3rem,20vw,9rem);color:var(--ink)}
+.cn{margin:0;font-weight:400;font-size:clamp(1.6rem,5vw,2.6rem);color:var(--ink);letter-spacing:.55em;padding-left:.55em}
+
+/* releases */
+.releases{background:var(--grey);color:var(--ink)}
+.releases .wrap{padding-block:clamp(4.5rem,12vw,8rem)}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(3.5rem,6vw,4.5rem) clamp(1.5rem,4vw,3rem);width:100%}
+.rel{display:grid;gap:1.4rem;justify-items:center;min-width:0}
+.rel img{display:block;width:100%;height:auto;max-width:100%;aspect-ratio:1;object-fit:cover}
+.rel h2{margin:0;font-size:clamp(1.3rem,3.4vw,1.8rem);color:var(--ink)}
+.listen{font-family:var(--f-mono);font-size:.8rem;letter-spacing:.18em;text-transform:uppercase;padding:.75rem 1.4rem;border:1px solid var(--ink);color:var(--ink);transition:background .2s,color .2s}
+.listen:hover{background:var(--ink);color:var(--grey)}
+
+/* contact: metallic light blue */
+.contact{background:var(--grey);color:var(--ink)}
+.contact .wrap{padding-block:clamp(4.5rem,12vw,7rem);gap:1.6rem}
+.contact h2{margin:0;font-size:clamp(1.3rem,4vw,1.8rem)}
+.mail{font-family:var(--f-mono);font-size:clamp(.95rem,3.6vw,1.25rem);letter-spacing:.04em;word-break:break-all;user-select:all}
+
+footer{background:var(--grey);color:#6E747D}
+footer .wrap{padding-block:1.4rem;font-family:var(--f-mono);font-size:.7rem;letter-spacing:.14em}
+
+@media (max-width:640px){.grid{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<main>
+  <section class="hero">
+    <canvas id="planet" aria-hidden="true"></canvas>
+    <div class="wrap">
+      <h1 class="wordmark goth">richboi</h1>
+      <p class="cn">周譽</p>
+    </div>
+  </section>
+
+  <section class="releases" id="music">
+    <div class="wrap">
+      <div class="grid">
+        <article class="rel">
+          <img src="stay-lit.jpg" alt="Stay Lit 封面" width="900" height="900">
+          <h2 class="goth">Stay Lit</h2>
+          <a class="listen" data-link="stayLit" href="https://youtu.be/yFa48fvol10" target="_blank" rel="noopener">Listen now</a>
+        </article>
+        <article class="rel">
+          <img src="cold-tape.jpg" alt="Cold Tape 封面" width="900" height="900">
+          <h2 class="goth">Cold Tape</h2>
+          <a class="listen" data-link="coldTape" href="https://open.spotify.com/album/4y7lbmkE8RVe2PzXycoKhe" target="_blank" rel="noopener">Listen now</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="wrap">
+      <h2 class="goth">Contact</h2>
+      <span class="mail" data-text="email">richboi23888@gmail.com</span>
+      <div class="sm">
+        <a data-link="instagram" href="https://www.instagram.com/richboi238" target="_blank" rel="noopener">Instagram</a>
+        <a data-link="youtube" href="https://www.youtube.com/@richboi238" target="_blank" rel="noopener">YouTube</a>
+        <a data-link="spotify" href="https://open.spotify.com/artist/1iO6XAWIpev0bKZnIcpG7L" target="_blank" rel="noopener">Spotify</a>
+        <a data-link="appleMusic" href="https://music.apple.com/tw/artist/richboi/1543181386" target="_blank" rel="noopener">Apple Music</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer><div class="wrap">© 2026 RICHBOI</div></footer>
+
+<script>
+(function(){
+  var c=document.getElementById('planet'); if(!c) return;
+  var ctx=c.getContext('2d');
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var w,h,dpr,last=0,TILT=0.42,PERIOD=120000;
+  var INK='11,12,15', STEEL='127,163,187', ICE='190,220,236';
+  function size(){dpr=Math.min(window.devicePixelRatio||1,2);w=c.clientWidth;h=c.clientHeight;c.width=w*dpr;c.height=h*dpr;ctx.setTransform(dpr,0,0,dpr,0,0)}
+  function proj(x,y,z,rot,tilt){var cr=Math.cos(rot),sr=Math.sin(rot);var x1=x*cr+z*sr,z1=-x*sr+z*cr;var ct=Math.cos(tilt),st=Math.sin(tilt);return [x1,y*ct-z1*st,y*st+z1*ct]}
+  function star(x,y,r,a){ctx.beginPath();ctx.moveTo(x,y-r);ctx.quadraticCurveTo(x,y,x+r,y);ctx.quadraticCurveTo(x,y,x,y+r);ctx.quadraticCurveTo(x,y,x-r,y);ctx.quadraticCurveTo(x,y,x,y-r);ctx.fillStyle='rgba('+INK+','+a+')';ctx.fill()}
+  var sparks=[[0.12,0.2,7,0],[0.86,0.16,10,1.7],[0.8,0.84,6,3.1],[0.18,0.82,5,4.4]];
+  function draw(t){
+    ctx.clearRect(0,0,w,h);
+    var small=w<640, cx=w*0.5, cy=h*0.5, R=small?w*0.34:Math.min(h*0.34,w*0.26), k=small?0.85:1;
+    var rot=(t%PERIOD)/PERIOD*Math.PI*2;
+    function seg(p){for(var i=1;i<p.length;i++){var a=p[i-1],b=p[i],z=(a[2]+b[2])/2;ctx.strokeStyle='rgba('+INK+','+((z>0?0.05+0.17*z:0.035)*k)+')';ctx.beginPath();ctx.moveTo(cx+a[0]*R,cy-a[1]*R);ctx.lineTo(cx+b[0]*R,cy-b[1]*R);ctx.stroke()}}
+    function ring(front){var RR=1.62,g=ctx.createLinearGradient(cx-RR*R,cy,cx+RR*R,cy);
+      g.addColorStop(0,'rgba('+STEEL+',0)');g.addColorStop(0.3,'rgba('+STEEL+','+0.7*k+')');g.addColorStop(0.55,'rgba('+ICE+','+0.9*k+')');g.addColorStop(0.8,'rgba('+STEEL+','+0.6*k+')');g.addColorStop(1,'rgba('+STEEL+',0)');
+      ctx.strokeStyle=g;ctx.lineWidth=1.5;ctx.beginPath();var st=false;
+      for(var i=0;i<=180;i++){var a=i/180*Math.PI*2,p=proj(Math.cos(a)*RR,0,Math.sin(a)*RR,rot*0.5,TILT+0.18);if((p[2]>0)===front){var X=cx+p[0]*R,Y=cy-p[1]*R;if(!st){ctx.moveTo(X,Y);st=true}else ctx.lineTo(X,Y)}else st=false}
+      ctx.stroke();ctx.lineWidth=1}
+    ring(false);
+    ctx.fillStyle='rgba(214,216,220,0.75)';ctx.beginPath();ctx.arc(cx,cy,R,0,Math.PI*2);ctx.fill();
+    for(var lat=-75;lat<=75;lat+=15){var p1=[],ph=lat*Math.PI/180;for(var i=0;i<=72;i++){var th=i/72*Math.PI*2;p1.push(proj(Math.cos(ph)*Math.cos(th),Math.sin(ph),Math.cos(ph)*Math.sin(th),rot,TILT))}seg(p1)}
+    for(var lon=0;lon<180;lon+=20){var p2=[],L=lon*Math.PI/180;for(var j=0;j<=72;j++){var q=j/72*Math.PI*2;p2.push(proj(Math.cos(q)*Math.cos(L),Math.sin(q),Math.cos(q)*Math.sin(L),rot,TILT))}seg(p2)}
+    ctx.strokeStyle='rgba('+INK+','+0.14*k+')';ctx.beginPath();ctx.arc(cx,cy,R,0,Math.PI*2);ctx.stroke();
+    ring(true);
+  }
+  function loop(t){if(t-last>33){draw(t);last=t}if(!reduce)requestAnimationFrame(loop)}
+  size();draw(20000);
+  window.addEventListener('resize',function(){size();draw(last||20000)});
+  if(!reduce)requestAnimationFrame(loop);
+})();
+(function(){
+  var el=document.querySelector('.wordmark');if(!el)return;
+  function fit(){
+    var p=el.parentElement,cs=getComputedStyle(p);
+    var w=p.clientWidth-parseFloat(cs.paddingLeft)-parseFloat(cs.paddingRight);
+    el.style.fontSize='100px';
+    var tw=el.getBoundingClientRect().width;
+    if(tw>0) el.style.fontSize=Math.floor(Math.min(w/tw*100,200)*0.94)+'px';
+  }
+  fit();
+  if(document.fonts){document.fonts.ready.then(fit);if(document.fonts.addEventListener)document.fonts.addEventListener('loadingdone',fit)}
+  window.addEventListener('load',fit);
+  if(window.ResizeObserver)new ResizeObserver(fit).observe(el.parentElement);else window.addEventListener('resize',fit);
+})();
+</script>
+
+<script>
+(function(){
+  var L=window.LINKS||{};
+  document.querySelectorAll('[data-link]').forEach(function(a){var u=L[a.getAttribute('data-link')];if(u)a.href=u});
+  document.querySelectorAll('[data-text]').forEach(function(e){var v=L[e.getAttribute('data-text')];if(v)e.textContent=v});
+})();
+</script>
+</body>
+</html>
