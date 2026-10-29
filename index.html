@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>RICHBOI</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="RICHBOI — Berlin / Taipei. Music, visuals and merch.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+TC:wght@400;500&display=swap">
+<style>
+/* Layout: one narrow column of "transmission panels" on a cool chrome ground; a slow orbital wireframe in the hero, mono coordinates as the recurring detail. */
+:root{
+  --bg:#E8EAEE; --surface:#F4F5F7; --fg:#0E1117; --muted:#596070; --line:#C3C8D2; --accent:#2D39F0; --accent-ink:#FFFFFF;
+  --f-display:"Syncopate","Arial Black",system-ui,sans-serif;
+  --f-body:"IBM Plex Sans","Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+  --s1:.75rem; --s2:1rem; --s3:1.5rem; --s4:2.5rem; --s5:4rem; --s6:6rem;
+  --wrap:1080px;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0B0D12; --surface:#131620; --fg:#E7E9EF; --muted:#8C93A3; --line:#252A36; --accent:#7F89FF; --accent-ink:#0B0D12; color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0B0D12; --surface:#131620; --fg:#E7E9EF; --muted:#8C93A3; --line:#252A36; --accent:#7F89FF; --accent-ink:#0B0D12; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{margin:0}
+img{max-width:100%}
+body{background:var(--bg);color:var(--fg);font-family:var(--f-body);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.wrap{max-width:var(--wrap);margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.mono{font-family:var(--f-mono);font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+
+/* nav */
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;background:color-mix(in srgb,var(--bg) 86%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+header.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:var(--s2);padding-block:.85rem}
+.logo{font-family:var(--f-display);font-weight:700;font-size:.95rem;letter-spacing:.18em;text-decoration:none}
+nav ul{display:flex;gap:var(--s3);list-style:none;margin:0;padding:0}
+nav a{text-decoration:none;font-family:var(--f-mono);font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+nav a:hover{color:var(--fg)}
+
+/* hero */
+.hero{position:relative;overflow:hidden;border-bottom:1px solid var(--line)}
+.hero canvas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.hero .wrap{position:relative;padding-block:var(--s6) var(--s5);display:grid;gap:var(--s3)}
+.coords{display:flex;flex-wrap:wrap;gap:.5rem 1.5rem}
+.wordmark{font-family:var(--f-display);font-weight:700;font-size:clamp(2.6rem,11vw,7.5rem);line-height:.92;letter-spacing:.04em;margin:0;text-wrap:balance}
+.lede{max-width:34rem;margin:0;font-size:1.05rem;color:var(--muted)}
+.lede strong{color:var(--fg);font-weight:500}
+.cta{display:flex;flex-wrap:wrap;gap:var(--s1)}
+.btn{display:inline-flex;align-items:center;gap:.6rem;padding:.8rem 1.2rem;border:1px solid var(--fg);text-decoration:none;font-family:var(--f-mono);font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;transition:background .2s,color .2s}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.btn:hover{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+
+/* sections */
+section.block{padding-block:var(--s5);border-bottom:1px solid var(--line)}
+.head{display:flex;justify-content:space-between;align-items:baseline;gap:var(--s2);flex-wrap:wrap;margin-bottom:var(--s4)}
+.head h2{font-family:var(--f-display);font-weight:700;font-size:clamp(1.3rem,3.4vw,2rem);letter-spacing:.08em;margin:0}
+
+/* releases */
+.releases{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:var(--s3)}
+.rel{display:grid;gap:var(--s2);min-width:0}
+.cover{aspect-ratio:1;max-width:100%;border:1px solid var(--line);background:var(--surface);position:relative;overflow:hidden}
+.cover svg{position:absolute;inset:0;width:100%;height:100%}
+.rel-meta{display:flex;justify-content:space-between;gap:var(--s1)}
+.rel h3{font-family:var(--f-display);font-size:1.15rem;letter-spacing:.06em;margin:0}
+.links{display:flex;flex-wrap:wrap;gap:.5rem}
+.chip{font-family:var(--f-mono);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;padding:.35rem .65rem;border:1px solid var(--line);color:var(--muted)}
+.chip:hover{border-color:var(--accent);color:var(--accent)}
+
+/* merch */
+.merch{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:var(--s3)}
+.item{display:grid;gap:.6rem;min-width:0}
+.item .shot{aspect-ratio:4/5;max-width:100%;background:var(--surface);border:1px solid var(--line);display:grid;place-items:center;position:relative}
+.item .shot span{font-family:var(--f-display);font-weight:700;letter-spacing:.2em;font-size:.8rem;color:var(--muted)}
+.item .tag{position:absolute;top:.6rem;left:.6rem}
+.item .row{display:flex;justify-content:space-between;gap:var(--s1);align-items:baseline}
+.item h3{margin:0;font-size:.95rem;font-weight:500}
+.price{font-family:var(--f-mono);font-size:.85rem;font-variant-numeric:tabular-nums}
+.note{margin-top:var(--s3);max-width:40rem;color:var(--muted);font-size:.9rem}
+
+/* about */
+.about{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);gap:var(--s4)}
+.about p{margin:0 0 var(--s2);max-width:62ch}
+.facts{display:grid;gap:0;border-top:1px solid var(--line);align-content:start}
+.facts div{display:flex;justify-content:space-between;gap:var(--s2);padding-block:.7rem;border-bottom:1px solid var(--line)}
+.facts dd{margin:0;text-align:right}
+
+/* contact */
+.contact{display:grid;gap:var(--s2)}
+.mail{display:flex;flex-wrap:wrap;align-items:center;gap:var(--s1)}
+.mail code{font-family:var(--f-mono);font-size:clamp(1rem,3vw,1.4rem);user-select:all;word-break:break-all}
+.copy{font:inherit;font-family:var(--f-mono);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;background:none;border:1px solid var(--line);color:var(--fg);padding:.4rem .7rem;cursor:pointer}
+.copy:hover{border-color:var(--accent);color:var(--accent)}
+.social{display:flex;flex-wrap:wrap;gap:.5rem}
+
+footer .wrap{padding-block:var(--s4);display:flex;justify-content:space-between;flex-wrap:wrap;gap:var(--s1)}
+
+@media (max-width:720px){
+  nav ul{gap:var(--s2)}
+  nav li.hide-sm{display:none}
+  .about{grid-template-columns:1fr}
+  .hero .wrap{padding-block:var(--s5) var(--s4)}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="#top">RICHBOI</a>
+    <nav aria-label="主選單"><ul>
+      <li><a href="#music">Music</a></li>
+      <li><a href="#merch">Merch</a></li>
+      <li class="hide-sm"><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul></nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <canvas id="orbit" aria-hidden="true"></canvas>
+    <div class="wrap">
+      <div class="coords">
+        <span class="mono">BER 52.52°N 13.40°E</span>
+        <span class="mono">⇄</span>
+        <span class="mono">TPE 25.03°N 121.56°E</span>
+      </div>
+      <h1 class="wordmark">RICH<br>BOI</h1>
+      <p class="lede"><strong>Hip-hop / melodic rap / electronic.</strong> 在柏林與台北之間創作，用 auto-tune、低頻和 Y2K 的記憶拼出未來的聲音。</p>
+      <div class="cta">
+        <a class="btn primary" href="#music">最新作品 →</a>
+        <a class="btn" href="#merch">周邊商品</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="music">
+    <div class="wrap">
+      <div class="head"><h2>MUSIC</h2><span class="mono">Catalog / R.N.E</span></div>
+      <div class="releases">
+        <article class="rel">
+          <div class="cover" aria-hidden="true">
+            <svg viewBox="0 0 100 100" preserveAspectRatio="none">
+              <defs><linearGradient id="g1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="var(--accent)" stop-opacity=".9"/><stop offset="1" stop-color="var(--accent)" stop-opacity="0"/></linearGradient></defs>
+              <circle cx="50" cy="56" r="30" fill="url(#g1)"/>
+              <line x1="0" y1="56" x2="100" y2="56" stroke="var(--fg)" stroke-width=".3"/>
+            </svg>
+          </div>
+          <div class="rel-meta"><span class="mono">R.N.E-002 · Single</span><span class="mono">2026</span></div>
+          <h3>STAY LIT</h3>
+          <div class="links">
+            <a class="chip" href="#" target="_blank" rel="noopener">Spotify</a>
+            <a class="chip" href="#" target="_blank" rel="noopener">Apple Music</a>
+            <a class="chip" href="#" target="_blank" rel="noopener">YouTube</a>
+          </div>
+        </article>
+        <article class="rel">
+          <div class="cover" aria-hidden="true">
+            <svg viewBox="0 0 100 100" preserveAspectRatio="none">
+              <g fill="none" stroke="var(--fg)" stroke-width=".35">
+                <rect x="18" y="32" width="64" height="38"/>
+                <circle cx="38" cy="51" r="7"/><circle cx="62" cy="51" r="7"/>
+                <line x1="18" y1="64" x2="82" y2="64"/>
+              </g>
+              <rect x="18" y="32" width="64" height="6" fill="var(--accent)"/>
+            </svg>
+          </div>
+          <div class="rel-meta"><span class="mono">R.N.E-001 · Tape</span><span class="mono">2026</span></div>
+          <h3>COLD TAPE</h3>
+          <div class="links">
+            <a class="chip" href="#" target="_blank" rel="noopener">Spotify</a>
+            <a class="chip" href="#" target="_blank" rel="noopener">Apple Music</a>
+            <a class="chip" href="#" target="_blank" rel="noopener">YouTube</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="merch">
+    <div class="wrap">
+      <div class="head"><h2>MERCH</h2><span class="mono">Drop 01 · 即將開賣</span></div>
+      <div class="merch">
+        <article class="item">
+          <div class="shot"><span class="mono tag">Sample</span><span>RICHBOI</span></div>
+          <div class="row"><h3>Orbit Logo Tee</h3><span class="price">NT$ 1,280</span></div>
+          <span class="mono">Black / Silver · S–XL</span>
+        </article>
+        <article class="item">
+          <div class="shot"><span class="mono tag">Sample</span><span>COLD TAPE</span></div>
+          <div class="row"><h3>Cold Tape Hoodie</h3><span class="price">NT$ 2,480</span></div>
+          <span class="mono">Ice Grey · S–XL</span>
+        </article>
+        <article class="item">
+          <div class="shot"><span class="mono tag">Sample</span><span>R.N.E</span></div>
+          <div class="row"><h3>R.N.E Cassette</h3><span class="price">NT$ 680</span></div>
+          <span class="mono">Limited · 100 copies</span>
+        </article>
+      </div>
+      <p class="note">以上商品、價格為範例。正式開賣時會連到購物頁面。</p>
+    </div>
+  </section>
+
+  <section class="block" id="about">
+    <div class="wrap">
+      <div class="head"><h2>ABOUT</h2><span class="mono">Profile</span></div>
+      <div class="about">
+        <dl class="facts">
+          <div><dt class="mono">Name</dt><dd>RICHBOI · 周譽</dd></div>
+          <div><dt class="mono">Base</dt><dd>Berlin / Taipei</dd></div>
+          <div><dt class="mono">Sound</dt><dd>Hip-hop · Melodic rap · Electronic</dd></div>
+          <div><dt class="mono">Label</dt><dd>REKNOWNE (R.N.E)</dd></div>
+        </dl>
+        <div>
+          <p>RICHBOI 是來自台灣、以柏林為創作基地的饒舌歌手與製作人。他的作品融合旋律饒舌、auto-tune 與電子聲響，帶著 Y2K 年代的影像記憶。</p>
+          <p>RICHBOI is a Taiwanese rapper and producer working between Berlin and Taipei, blending melodic rap, auto-tune and electronic production with a Y2K visual memory.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="contact">
+    <div class="wrap contact">
+      <div class="head" style="margin-bottom:0"><h2>CONTACT</h2><span class="mono">Booking / Press</span></div>
+      <div class="mail">
+        <code id="mail">booking@example.com</code>
+        <button class="copy" id="copyBtn" type="button">複製</button>
+      </div>
+      <div class="social">
+        <a class="chip" href="#" target="_blank" rel="noopener">Instagram</a>
+        <a class="chip" href="#" target="_blank" rel="noopener">YouTube</a>
+        <a class="chip" href="#" target="_blank" rel="noopener">Spotify</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span class="mono">© 2026 RICHBOI · REKNOWNE</span>
+    <span class="mono">Transmission from Berlin ⇄ Taipei</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  const c=document.getElementById('orbit'); if(!c) return;
+  const ctx=c.getContext('2d');
+  const reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let w,h,dpr,t=0;
+  function size(){dpr=Math.min(window.devicePixelRatio||1,2);w=c.clientWidth;h=c.clientHeight;c.width=w*dpr;c.height=h*dpr;ctx.setTransform(dpr,0,0,dpr,0,0)}
+  function col(name){return getComputedStyle(document.documentElement).getPropertyValue(name).trim()}
+  function draw(){
+    ctx.clearRect(0,0,w,h);
+    const cx=w*(w<720?0.78:0.72), cy=h*0.5, R=Math.min(w,h)*0.42;
+    const line=col('--line'), acc=col('--accent');
+    ctx.lineWidth=1;
+    for(let i=0;i<7;i++){
+      const tilt=(i/7)*Math.PI + t*0.0006;
+      ctx.beginPath();
+      ctx.ellipse(cx,cy,R,R*Math.abs(Math.cos(tilt))+1,0.35,0,Math.PI*2);
+      ctx.strokeStyle=line; ctx.stroke();
+    }
+    ctx.beginPath(); ctx.arc(cx,cy,R,0,Math.PI*2); ctx.strokeStyle=line; ctx.stroke();
+    const a=t*0.0012, px=cx+Math.cos(a)*R*1.15, py=cy+Math.sin(a)*R*0.35;
+    ctx.beginPath(); ctx.ellipse(cx,cy,R*1.15,R*0.35,0,0,Math.PI*2); ctx.strokeStyle=acc; ctx.globalAlpha=.5; ctx.stroke(); ctx.globalAlpha=1;
+    ctx.beginPath(); ctx.arc(px,py,4,0,Math.PI*2); ctx.fillStyle=acc; ctx.fill();
+  }
+  function loop(ts){t=ts||0;draw(); if(!reduce) requestAnimationFrame(loop)}
+  size(); window.addEventListener('resize',()=>{size();draw()});
+  loop(0);
+})();
+document.getElementById('copyBtn').addEventListener('click',function(){
+  const btn=this, txt=document.getElementById('mail').textContent;
+  const done=()=>{btn.textContent='已複製';setTimeout(()=>btn.textContent='複製',1600)};
+  try{navigator.clipboard.writeText(txt).then(done,select)}catch(e){select()}
+  function select(){const r=document.createRange();r.selectNodeContents(document.getElementById('mail'));const s=getSelection();s.removeAllRanges();s.addRange(r)}
+});
+</script>
+</body>
+</html>
